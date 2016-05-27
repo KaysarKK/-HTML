@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "stylesheet" href = "style.css"/>
+
+		<script type="text/javascript">
+		  var total = 0;
+            var all = "<h3> Your order! </h3><table border = "+"1"+" class="+"table table-striped"+"><tr><th>Item name</th><th>Size</th><th>Quantity</th><th>Price</th><th>subtotal</th></tr>";
+            var prices = ["25000", "50000", "20000", "40000"];
+            var adiurls = [ "http://cdn.blessthisstuff.com/imagens/stuff/adidas-blauvelt-hiking-boot-2.jpg", "http://www.yomister.com/image/data/0/adidas-shoes/Adidas-High-Top-Shoes/Adidas-Navvy-Winter-Martin-Boots-Shoes-Men-Black-White-Big-Discount-Cheap-153_4.jpg", "http://www.yomister.com/image/data/0/adidas-shoes/Adidas-High-Top-Shoes/Cheap-Adidas-Navvy-Winter-Martin-Boots-Shoes-Men-Yellow-Super-Specials-528_1.jpg"];
+            var nikeurls = [ "http://ecx.images-amazon.com/images/I/416d44Llt6L._SY395_.jpg", "http://images.freshnessmag.com/wp-content/uploads//2012/11/nike-kingman-leather-boots-new-colorways-01.jpg", "http://image.sneakerhead.com/is/image/sneakerhead/nike-air-max-posite-bakin-boot-acg415327008-2?$480$"];
+            var uggurls = ["http://www.uggstore.com.au/images/snug_australia/large/Classic_Mini_Sand.jpg", "http://www.uggstore.com.au/images/chic_empire/large/Shimmer_Short_Champagne.jpg", "https://s-media-cache-ak0.pinimg.com/736x/58/98/b1/5898b103d93d11ce6a0cf9ffcb7fa8dc.jpg"];
+            var reebokurls = ["http://s3.amazonaws.com/nk_wp_media/uploads/2011/09/xlj83165-tan_fl.jpeg", "http://workingperson.com/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/r/e/reebok-rb438-i_01.jpg", "http://www.reebokoutletsales.com/images/large/ppimg/Reebok%20Men%20s%20Ankle%20Boots%20Dark%20Black%20%20156_LRG.jpg"];
+            var quantity = 0;
+            function generatePage(){
+				var myTable = "<table border='1px'>";
+                
+                myTable += "<tr><td> Items: "+quantity+"</td></tr>";
+                myTable += "<tr><td> Cost: "+total+"</td></tr></table>";				
+                container.innerHTML = myTable;
+			}
+            var lol;
+            function setimage(index){				
+				var imageView = document.getElementById('imageView');
+				imageView.src= index.src;
+			}
+
+            
+            function add() {
+                var a = document.getElementById("account-number").value;
+                a *= 1;
+                quantity += a;
+                total += prices[0] * a;
+                var c = document.getElementById("size").selected;
+                all += "<tr><td>Adidas </td><td>"+c+"</td><td>"+a+"</td><td>"+prices[0]+"</td><td>"+total+"</td></tr>";
+                document.getElementById("money").innerHTML = total;
+                document.getElementById("total").innerHTML = quantity;
+            }
+			function adik() {
+                lol = "<div id='"+"images-container"+"'><img id='imageView' src="+nikeurls[1]+"/></div>";
+                lol += "<table border = "+"1"+"><tr>";
+                for (var i = 0; i < 3; i++) {
+                    lol += "<td><img src = '"+adiurls[i]+"' style="+"width:140px;height:140px;"+" onmouseover='"+"setimage(this)"+"'/></td>";
+                }
+                lol += "</tr></table>";
+                lol += "<p> Quantity: <input type="+"text"+" id='account-number' value = "+"text"*1+"></p>";
+                lol += "<select id="+"size"+"><option value="+"S"+" selected> S </option><option  value="+"M"+"> M </option><option value="+"L"+"> L </option><option value="+"XL"+">XL</option></select>";
+                lol += "<button onClick="+"add()"+">"+"Add to card"+"</button>";
+                lol += "<button onClick="+"closeDialog()"+">"+"X"+"</button>"; 
+                
+            }
+            function adi() {
+                lol = "<div id='"+"images-container"+"'><img id='imageView' src='"+nikeurls[0]+"'/></div>";
+                lol += "<table border = "+"1"+"><tr>";
+                for (var i = 0; i < 3; i++) {
+                    lol += "<td><img src = '"+nikeurls[i]+"' style='"+"width:140px;height:140px;"+"' onmouseover='"+"setimage(this)"+"'/></td>";
+                }
+                lol += "</tr></table>";
+                lol += "<p> Quantity: <input type="+"text"+" id='account-number' value = "+"text"*1+"></p>";
+                lol += "<select id="+"size"+"><option value="+"S"+" selected> S </option><option  value="+"M"+"> M </option><option value="+"L"+"> L </option><option value="+"XL"+">XL</option></select>";
+                lol += "<button onClick="+"addd()"+">"+"Add to card"+"</button>";
+                lol += "<button onClick="+"closeDialog()"+">"+"X"+"</button>"; 
+                
+            }
+            function addd() {
+                var a = document.getElementById("account-number").value;
+                a *= 1;
+                quantity += a;
+                total += prices[1] * a;
+                var c = document.getElementById("size").value;
+                all += "<tr><td>Nike </td><td>"+c+"</td><td>"+a+"</td><td>"+prices[1]+"</td><td>"+total+"</td></tr>";
+                document.getElementById("money").innerHTML = total;
+                document.getElementById("total").innerHTML = quantity;
+            }
+                var x = document.getElementById("myDialog");
+            
+            function adir() {
+                lol = "<div id='"+"images-container"+"'><img id='imageView' src="+adiurls[0]+"/></div>";
+                lol += "<table border = "+"1"+"><tr>";
+                for (var i = 0; i < 3; i++) {
+                lol += "<td><img src = '"+reebokurls[i]+"' style="+"width:140px;height:140px;"+" onmouseover='"+"setimage(this)"+"'/></td>";
+                }
+                lol += "</tr></table>";
+                lol += "<p> Quantity: <input type="+"text"+" id='account-number' value = "+"text"*1+"></p>";
+                lol += "<select id="+"size"+"><option value="+"S"+" selected> S </option><option  value="+"M"+"> M </option><option value="+"L"+"> L </option><option value="+"XL"+">XL</option></select>";
+                lol += "<button onClick="+"adddd()"+">"+"Add to card"+"</button>";
+                lol += "<button onClick="+"closeDialog()"+">"+"X"+"</button>"; 
+                
+            }
+            function adddd() {
+                var a = document.getElementById("account-number").value;
+                a *= 1;
+                quantity += a;
+                total += prices[2] * a;
+                var c = document.getElementById("size").selected;
+                all += "<tr><td>Reebok </td><td>"+c+"</td><td>"+a+"</td><td>"+prices[2]+"</td><td>"+total+"</td></tr>";
+                document.getElementById("money").innerHTML = total;
+                document.getElementById("total").innerHTML = quantity;
+            }
+            function adiu() {
+                lol = "<div id='"+"images-container"+"'><img id='imageView' src="+adiurls[0]+"/></div>";
+                lol += "<table border = "+"1"+"><tr>";
+                for (var i = 0; i < 3; i++) {
+                lol += "<td><img src = '"+uggurls[i]+"' style="+"width:140px;height:140px;"+" onmouseover='"+"setimage(this)"+"'/></td>";
+                }
+                lol += "</tr></table>";
+                lol += "<p> Quantity: <input type="+"text"+" id='account-number' value = "+"text"*1+"></p>";
+                lol += "<select id="+"size"+"><option value="+"S"+" selected> S </option><option  value="+"M"+"> M </option><option value="+"L"+"> L </option><option value="+"XL"+">XL</option></select>";
+                lol += "<button onClick="+"addddd()"+">"+"Add to card"+"</button>";
+                lol += "<button onClick="+"closeDialog()"+">"+"X"+"</button>"; 
+                
+            }
+            function addddd() {
+                var a = document.getElementById("account-number").value;
+                a *= 1;
+                quantity += a;
+                total += prices[3] * a;
+                var c = document.getElementById("size").selected;
+                all += "<tr><td>Ugg </td><td>"+c+"</td><td>"+a+"</td><td>"+prices[3]+"</td><td>"+total+"</td></tr>";
+                document.getElementById("money").innerHTML = total;
+                document.getElementById("total").innerHTML = quantity;
+            }
+            function openDialog() {
+                adik();
+                 document.getElementById("myDialog").innerHTML = lol;
+                document.getElementById("myDialog").show();
+                
+            }
+            
+            function openDialo() {
+                adi();
+                 document.getElementById("myDialog").innerHTML = lol;
+                document.getElementById("myDialog").show();
+                
+            }
+            function openDial() {
+                adir();
+                 document.getElementById("myDialog").innerHTML = lol;
+                document.getElementById("myDialog").show();
+                
+            }
+            function openDia() {
+                adiu();
+                 document.getElementById("myDialog").innerHTML = lol;
+                document.getElementById("myDialog").show();
+                
+            }
+            function closeDialog () {
+                document.getElementById("myDialog").close();
+            }
+            function closeDialog1 () {
+                document.getElementById("myDialog1").close();
+            }
+            function closeDialog2 () {
+                document.getElementById("myDialog2").close();
+            }
+            function closeDialog3 () {
+                document.getElementById("myDialog3").close();
+            }
+            function generateBill () {
+                document.getElementById("Bill").innerHTML = all + "</table>";
+            }
+		</script>
+	</head>
+	<body>
+       
+        <h1>Welcome to Trend store</h1>
+        <h2>EZ</h2>
+        
+        <div id="Cart" style="margin: right">
+            <img src="http://static.wixstatic.com/media/61bf4d_c6e4f8245749497f90625fd313fb264a.gif" class="img2">
+            <h4>Total: <span id="money"></span> KZT</h4>
+            <h4>Items: <span id="total"></span></h4>
+        </div>
+        
+        
+        
+        <table class="table1">
+            <tr>
+                <td><img src="http://www.whereiseduy.com/wp-content/uploads/2014/08/Adidas-Logo.jpg" class="img1"><p><h3>"Adidas"</h3></p><p><h3>25000 tg</h3></p><button onClick="openDialog()"> BUY!</button><dialog style="width:40%" id="myDialog"></dialog></td>
+    
+    
+    <td><img src="http://www.freelargeimages.com/wp-content/uploads/2014/12/Nike_Logo_02.jpg" class="img1"><p><h3>"Nike"</h3></p><p><h3>50000 tg</h3></p><button onClick="openDialo()"> BUY!</button><dialog style="width:40%" id="myDialo"></dialog></td>
+</tr><tr>
+    <td><img src="http://nikeua.com/files/categories/reebok.jpg" class="img1" onclick="open()"><p><h3>"Reebok"</h3></p><p><h3>20000 tg</h3></p><button onClick="openDial()"> BUY!</button><dialog style="width:40%" id="myDialog2"></dialog></td>
+    <td><img src="http://www.freelogovectors.net/wp-content/uploads/2011/12/ugg-logo.jpg" width = 350px height = 200px><p><h3>"Ugg"</h3></p><p><h3>40000 tg</h3></p><button onClick="openDia()"> BUY!</button><dialog style="width:40%" id="myDialog3"></dialog></td>
+            
+</tr>
+        </table>
+<center><button onClick="generateBill()" style="width:100px;height:40px; background-color: green"> CHECKOUT!</button></center>
+<div id='Bill'></div>
+    </body>
+</html>
